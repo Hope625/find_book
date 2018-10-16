@@ -1,0 +1,21 @@
+{
+  "name": "epet-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "GaryHjy <782316959@qq.com>&&Hope625 <642238908>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "formidable": "^1.2.1",
+    "jsonwebtoken": "^8.3.0"
+  },
+  "devDependencies": {
+    "crypto": "^1.0.1",
+    "mysql": "^2.16.0"
+  }
+}

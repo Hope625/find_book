@@ -1,0 +1,91 @@
+#bookrack{
+    .am-list-item{
+        padding:  30px 25px;
+        border-bottom: 2px solid #EAEAEA;
+    }
+   
+    .bookcover{
+        img{
+            width: 120px;
+            height: 160px;
+            border-radius: 10px;
+        }
+    }    
+    
+    .am-list-body div:not(:last-child){ 
+        .am-list-line::after{
+            background-color: #fff;
+        }   
+    }
+    .bookinfo{
+        width: 525px;
+        margin-left:25px;
+        .title{
+            font-size:32px;
+        }
+        span{
+            margin: 0 10px;
+        }
+        .operate{
+            line-height: 4;
+            color:#666;
+        }
+    }
+    .am-badge-text{
+        width: 35px;
+        height: 38px;
+        border-radius:50%;
+        background-color:#5F52B8;
+        line-height: 35px;
+    }
+}
+.am-action-sheet {
+    left: 17px;
+    right:10px;
+    bottom: 10px;
+    width: 95%;
+    border-radius: 20px;
+}
+.am-action-sheet-button-list-item{
+    height: 100px;
+    line-height: 100px;
+    font-size: 30px;
+    color:#5F52B8;
+    
+}
+.am-action-sheet-button-list-item.am-action-sheet-destructive-button{
+    color:#5F52B8;
+}
+
+
+footer {
+    p{
+        color:#9B9B9B;
+        margin-top:20px;
+        span{
+            margin: 0 10px;
+        }
+    }
+}
+.am-navbar {
+    height: 100px;
+    background: rgb(255,255,255);
+    width: 100%;
+    z-index: 10000;
+    .am-icon-md {
+        width: 50px;
+        height: 50px;;
+    }
+    span{
+        font-size:30px;
+    }
+}
+.fixed{
+    position: fixed;
+    top:0;
+    left:0;
+}
+.am-navbar-light{
+    color:#9B9B9B;
+    ;
+}
