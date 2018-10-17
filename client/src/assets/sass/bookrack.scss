@@ -2,6 +2,12 @@
     .am-list-item{
         padding:  30px 25px;
         border-bottom: 2px solid #EAEAEA;
+        height:220px;
+        .am-list-line{
+            .am-list-brief{
+                font-size: 26px;
+            }
+        } 
     }
    
     .bookcover{
@@ -21,19 +27,51 @@
         width: 525px;
         margin-left:25px;
         .title{
+            width: 450px;
             font-size:32px;
         }
-        span{
-            margin: 0 10px;
+        .info{
+            margin-top:40px;
+            span{
+                margin: 0 10px;
+            }
         }
+              
         .operate{
-            line-height: 4;
-            color:#666;
+            line-height: 200px;
+            color:#ccc;
+        }
+        .am-icon-lg {
+            width: 35px;
+            height: 35px;
+        }
+    }
+    .am-list-item{
+        .am-list-line {
+            .am-list-content{
+                white-space: normal;
+            }
+        }
+    } 
+    .bookgrid{
+        .not-square-grid{
+            .am-grid-icon {
+                width: 200px;
+                height: 258px;
+                border-radius: 10px;     
+          }
+        } 
+        .am-grid-item-content{
+            padding: 35px 0;
+        }
+        .am-grid-text{
+            width: 200px;
+            font-size:28px;
         }
     }
     .am-badge-text{
-        width: 35px;
-        height: 38px;
+        width: 32px;
+        height: 32px;
         border-radius:50%;
         background-color:#5F52B8;
         line-height: 35px;
@@ -53,6 +91,7 @@
     color:#5F52B8;
     
 }
+
 .am-action-sheet-button-list-item.am-action-sheet-destructive-button{
     color:#5F52B8;
 }
@@ -61,7 +100,7 @@
 footer {
     p{
         color:#9B9B9B;
-        margin-top:20px;
+        margin:20px 0;
         span{
             margin: 0 10px;
         }
@@ -73,11 +112,18 @@ footer {
     width: 100%;
     z-index: 10000;
     .am-icon-md {
-        width: 50px;
-        height: 50px;;
+        width: 45px;
+        height: 45px;;
     }
     span{
         font-size:30px;
+    }
+    .format-list{
+        .octicon-grabber{
+            fill:#666;
+            width: 60px;
+            height: 65px;         
+        }
     }
 }
 .fixed{

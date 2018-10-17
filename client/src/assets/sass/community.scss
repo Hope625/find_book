@@ -1,8 +1,209 @@
 #community{
-    header{
-        .am-navbar{
-            height: 135px;
+    main{
+        width: 100%; 
+    }
+    .am-navbar{
+        height: 100px;
+        .am-navbar-title{
+            span{
+                font-size: 30px;
+            }
+        }       
+    }
+    .am-tabs-tab-bar-wrap{
+        height: 90px;   
+        .am-tabs-default-bar 
+        {
+            .am-tabs-default-bar-animated {
+                .am-tabs-default-bar-top{
+                    background-color: #615E79;
+                }
+            }
         }
+        .am-tabs-default-bar-content{
+            overflow: hidden;
+        }
+        .am-tabs-default-bar-tab{
+            border:0 none;
+            font-size: 28px;
+            height: 100%;
+            color: #E9E9EB;
+            position: relative;
+            
+        }
+        .am-tabs-default-bar-tab-active{
+            color:#fff;
+            font-size: 30px;
+            position: relative;
+            &::after{
+                content:'';
+                display: block;
+                width:20px;
+                height: 20px;
+                bottom: -8px;
+                transform: rotateZ(45deg);
+                border:0 none;
+                left:40%;
+                overflow:hidden;
+                background-color: #fff;
+            }
+        }
+    }
+    .allcontent{
+        width:100%;
+        position: relative; 
+        overflow: hidden;      
+        .am-notice-bar{
+            height: 100px;
+            width: 100%;
+            padding: 0 15px;
+            color:#000;
+            font-size: 32px;
+            background-color: #fff;
+        }
+        .am-notice-bar-operation{
+            span{
+                font-size:26px;
+                color:#979797;
+                svg{
+                    width: 40px;
+                    height: 40px;
+                    vertical-align: middle;
+                    line-height: 100px;
+                }
+            }
+        }
+        .am-notice-bar-content{
+            float: left;
+            text-align: left;
+        }
+    }
+        
+    .activities{
+        left:-30px;
+        display: flex;           
+        overflow-x: auto;
+        padding: 0 0 0 30px;
+        margin-bottom:35px;
+        li{       
+            a{ 
+                display: block; 
+                position: relative;
+                text-align: left;
+                padding-right: 30px ;                
+                img{
+                    
+                    width: 365px;
+                    height: 190px;
+                }
+                
+            }
+        }
+        .activity-theme{
+            color:#fff;
+            font-size: 26px;
+            padding-left:22px;
+            height: 100px;
+            line-height: 100px;
+        }
+        .activity-status{
+            width:125px;
+            height:40px;
+            position:absolute;
+            left:20px;
+            bottom:115px;
+            border-radius:5px;
+            line-height:42px;
+            font-size:24px;
+            span{
+                margin:0px 8px;
+                svg{
+                    width:28px;
+                    height:28px;
+                    vertical-align:middle;
+                }
+            }
+        }
+    }
     
+    .week-title{
+        padding: 20px 0;
+        height:230px;
+        background-color:#F1F2F4;
+        img{
+            height:190px;
+        }
+    }
+    .recommend-book{
+        margin-bottom: 35px;
+        h4{
+            padding-left:30px;
+            text-align: left;
+            font-size:36px;
+            margin-top:40px;
+            margin-bottom: 25px;
+        }
+        .all-booklist{
+            position: relative;
+            height: 230px;
+            overflow: hidden;
+            ul{
+                display: flex;
+                overflow-x: auto;
+                padding-left:30px;   
+            }
+            li{
+                a{
+                    display: block;
+                    width: 190px;
+                    height: 230px;
+                    padding-right: 30px;
+                }                
+                p{               
+                    width: 190px;
+                    text-align: center;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    font-size: 20px;
+                    color:#666;
+                }
+            }
+        }
+        .recom-book-imgs{
+            margin-bottom: 25px;
+            position: relative;
+            height: 145px;
+            img{
+                position: absolute;
+                &:nth-child(1){
+                    width: 80px;
+                    height: 88px;
+                    left: 15px;
+                    top:40px;
+                }
+                &:nth-child(2){
+                    width: 100px;
+                    height: 115px;
+                    left:50px;
+                    top:30px;
+                }
+                &:nth-child(3){
+                    width: 108px;
+                    height: 145px;
+                    left:80px;
+                    top:15px;
+                }
+            }
+        }
+    }
+    .selected-comments{
+        padding-top:40px;
+        h4{
+            padding-left:30px;
+            text-align: left;
+            font-size:36px;          
+            margin-bottom: 25px;
+        }
     }
 }

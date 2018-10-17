@@ -51,12 +51,18 @@ class App extends Component {
             name:'Mine'
           }
         ],
-        currentTab:'bookrack'
+        currentTab:'/bookrack',
       }
+  }
+  componentWillMount(){
+    let {location} = this.props;
+    this.setState({
+      currentTab:location.pathname
+    });
   }
   handleCurrentTab(tab){
     this.setState({
-      currentTab:tab.name
+      currentTab:tab.path
     });
     let {history} = this.props;
     history.push(tab.path);
@@ -72,12 +78,12 @@ class App extends Component {
               key={tab.name} 
               icon={<div dangerouslySetInnerHTML={{__html:octicons[tab.icon].toSVG()}}/>}
               selectedIcon={<div className="selected" dangerouslySetInnerHTML={{__html:octicons[tab.icon].toSVG()}}/>}
-              selected={tab.name === this.state.currentTab}
+              selected={tab.path === this.state.currentTab}
               onPress = {this.handleCurrentTab.bind(this,tab)}
               >
                 <Switch>
                     <Route path={tab.path} component={allComponent[tab.name]}/>
-                    <Redirect from="/" to="/home" exact />                        
+                    <Redirect from="/" to="/bookrack" exact />                        
                 </Switch>
               </TabBar.Item>
             })
