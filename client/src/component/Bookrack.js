@@ -158,10 +158,10 @@ class Bookrack extends Component{
             isHorizontal: !currentStatus
         });
     }
-    // changeToDiscover(){
-    //     let {history} = this.props;
-    //     history.replace('/discover');
-    // }
+    changeToDiscover(){
+        let {history} = this.props;
+        history.replace('/discover');
+    }
     render(){
         return (
         <div id="bookrack"  onTouchMove={this.handleScroll.bind(this)}>
@@ -208,7 +208,7 @@ class Bookrack extends Component{
                                 thumb = { item.title!=''?
                                 <div className="bookcover"><Badge text="5">
                                         <img src={item.img}  alt=""/>
-                                    </Badge></div>:<div className="bookcover"><img src={item.img} alt="" /></div>}
+                                    </Badge></div>:<div className="bookcover" onClick={this.changeToDiscover.bind(this)}><img src={item.img} alt="" /></div>}
                                 // onClick={() => {}}
                                 >
                                 {item.title != '' ? <div className="bookinfo clearfix">
