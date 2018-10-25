@@ -1,11 +1,33 @@
 #community{
+    .header-fixed{
+        width: 100%;
+        position: fixed;
+        left:0;
+        top:0;
+        z-index: 100;
+    }
+    .am-tabs-default-bar-content{
+        position:fixed;
+        top:100px;
+        left:0;
+        background: #615E79;
+        height: 95px;
+    }
+    .am-tabs-tab-bar-wrap-fixed{
+        width: 100%;
+        position: fixed;
+        top:100px;
+        left:0;
+        z-index: 101;
+    }
+    .am-tabs-content-wrap{
+      height: 100;
+  }
     main{
         width: 100%; 
     }
     .am-navbar{
-        // position: fixed;
-        // left:0;
-        // top:0;
+   
         height: 100px;
         .am-navbar-title{
             span{
@@ -14,9 +36,6 @@
         }       
     }
     .am-tabs-tab-bar-wrap{
-        // position: fixed;
-        // left:0;
-        // top:100px;
         height: 90px;   
         .am-tabs-default-bar 
         {
@@ -56,6 +75,7 @@
         }
     }
     .allcontent{
+        margin-top:195px;
         width:100%;
         position: relative; 
         overflow: hidden;      
@@ -152,9 +172,9 @@
             margin-bottom: 25px;
         }
         .all-booklist{
-            position: relative;
-            height: 230px;
-            overflow: hidden;
+            // position: relative;
+            // height: 230px;
+            // overflow: hidden;
             ul{
                 display: flex;
                 overflow-x: auto;
@@ -214,9 +234,6 @@
             font-size:32px;          
             margin-bottom: 25px;
         }
-        .comment-content{
-            // -webkit-line-clamp: 3; 
-        }
     }
     .comment-content{
         // -webkit-box-orient: vertical; webpack打包编译不出来
@@ -229,11 +246,12 @@
         word-break:break-all;
         word-wrap:break-word;
         width: 750px;  
-        height: 150px;
-        padding: 0 30px;
+        height: 180px;
+        padding: 30px 30px;
         box-sizing: border-box;
         font-size: 30px;
         line-height: 50px;
+        text-align: left;
     }
     .comment-time{
         height: 60px;
@@ -275,23 +293,22 @@
     }
     .comment-novel{
         display: flex;
-        padding: 20px 20px;
-        margin-left:30px;
+        padding: 15px;
+        margin: 0 30px;
         background-color: #F7F7F7;
-        height: 120px;
+        height: 110px;
         img{
-            width: 70px;
-            height:90px;
+            height:80px;
             margin-right:20px;
             border-radius:10px;
         }
     }
     .comment-novel-info{
         text-align: left;
-        padding:15px 0;
+        line-height: 80px;
         p{
-            font-size: 28px;
-            line-height: 35px;
+            font-size: 26px;
+            line-height: 40px;
         }
         .comment-novel-title{
             color:#686868
@@ -300,18 +317,214 @@
             color: #A7A7A7;
         }
     }
-    .find-selected{
-        background:#fff;
+    .all-find-selected{
         margin-top:20px;
         h4{
             line-height: 115px;
             text-align: left;
             padding:0 30px;
             font-size: 32px;
+            background-color: #fff;
         }
         .comment-content{
-            -webkit-line-clamp: unset;           
-            height: 100%;
+            height: auto;
+        }
+    }
+    .find-selected{ 
+        .find-comment{
+            background-color: #fff;
+        }           
+        .find-booklist{
+            height: 690px;
+            background:#fff;
+        }
+        .find-book-info{
+            display:flex;
+            height: 280px;           
+        }
+        .find-book-introduce{
+            padding-right:10px;
+            width:550px;
+            color:#fff;
+            padding: 0 30px;
+            text-align: left;
+            h5{
+                font-size:36px;              
+                margin-top:50px;
+            }
+            .find-book-decription{
+                font-size:30px;
+                line-height: 45px;
+                padding: 25px 0;
+            }
+        }
+        .find-book-imgs{
+            width:200px;
+            line-height: 250px;
+            ul{
+                position: relative;
+                li{
+                    position: absolute;
+                    &:nth-child(1){
+                        img{
+                            width: 80px;
+                            height: 88px;
+                        }
+                        
+                        left: 15px;
+                        top:30px;
+                    }
+                    &:nth-child(2){
+                        img{
+                            width: 100px;
+                            height: 115px;
+                        }  
+                        left:50px;
+                        top:30px;
+                    }
+                    &:nth-child(3){
+                        img{
+                            width: 108px;
+                            height: 145px;
+                        }
+                        
+                        left:80px;
+                        top:30px;
+                    }
+                }
+            }
+        }
+        .find-book-user{
+            img{
+                width: 72px;
+                height: 72px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+        }
+        .find-book-star{
+            line-height: 72px;
+            span{
+                padding: 0px 8px;
+                border:2px solid #fff;
+                margin-right:10px;
+            }
+        }
+        .find-weektheme{
+            margin-top:20px;
+            background-color:#fff;
+            text-align: left;
+            h4{
+                font-size:36px;
+            }
+            .theme-publish-time{
+                color:#979797;
+                padding: 0 30px;
+            }
+            .theme-content{
+                padding: 30px 30px;
+                font-size: 30px;
+                line-height: 45px;
+                color:#929292;
+            }
+            .answer-user-num{
+                height: 65px;
+                line-height: 65px;
+                background: #F7F7F7;
+                margin: 0 30px;
+            }
+            .answer-user-info{
+                padding: 0 30px;
+                line-height: 135px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .allbook{
+        width:100%;
+        margin-top:190px;
+        border-top:1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        .find-book-info{
+            display:flex;
+            height: 280px;           
+        }
+        .find-book-introduce{
+            padding-right:10px;
+            width:550px;
+            padding: 0 30px;
+            text-align: left;
+            h5{
+                font-size:36px;              
+                margin-top:50px;
+            }
+            .find-book-decription{
+                font-size:30px;
+                line-height: 45px;
+                padding: 25px 0;
+                color: #929292;
+            }
+        }
+        .find-book-imgs{
+            width:200px;
+            line-height: 250px;
+            ul{
+                position: relative;
+                li{
+                    position: absolute;
+                    &:nth-child(1){
+                        img{
+                            width: 80px;
+                            height: 88px;
+                        }
+                        
+                        left: 15px;
+                        top:30px;
+                    }
+                    &:nth-child(2){
+                        img{
+                            width: 100px;
+                            height: 115px;
+                        }  
+                        left:50px;
+                        top:30px;
+                    }
+                    &:nth-child(3){
+                        img{
+                            width: 108px;
+                            height: 145px;
+                        }
+                        
+                        left:80px;
+                        top:30px;
+                    }
+                }
+            }
+        }
+        .find-book-user{
+            img{
+                width: 72px;
+                height: 72px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+        }
+        .find-book-star{
+            line-height: 72px;
+            span{
+                padding: 0px 8px;
+                border:2px solid #979797;
+                margin-right:10px;
+                color: #929292;
+            }
+        }
+    }
+    .allcomment{
+        margin-top:195px;
+        .find-comment{
+            margin-bottom:20px;
+            height: auto;
+            line-height: unset;
         }
     }
 }

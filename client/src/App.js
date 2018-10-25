@@ -2,10 +2,10 @@ import React,{Component} from 'react';
 import {Route,Switch,withRouter,Redirect} from 'react-router-dom';
 import { TabBar } from 'antd-mobile'; 
 
-import Bookrack from './component/Bookrack';
-import Community from './component/Community';
-import Discover from './component/Discover';
-import Mine from './component/Mine';
+import Bookrack from './component/book/Bookrack';
+import Community from './component/community/Community';
+import Discover from './component/discover/Discover';
+import Mine from './component/user/Mine';
 
 import './App.css';
 import './assets/sass/common.scss';

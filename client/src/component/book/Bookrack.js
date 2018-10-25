@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { List,Carousel,Badge,ActionSheet,NavBar,Icon,Grid } from 'antd-mobile';
-import "../assets/sass/bookrack.scss";
+import "../../assets/sass/bookrack.scss";
 import octicons from 'octicons';
 
 const Item = List.Item;
@@ -31,9 +31,22 @@ class Bookrack extends Component{
                     id:4,
                     href:'#',
                     imgurl:"./img/banner4.jpg",   
+                },
+                {
+                    id:5,
+                    href:'#',
+                    imgurl:"./img/banner5.jpg",   
                 }
             ],
-            booklist:[
+            emptyBooklist:
+            {
+                id:8,
+                img: './img/default_add_bookrack.jpg',
+                title: '',
+                author:'',
+                status:''
+            },           
+            booklist:[            
                 {
                     id:1,
                     img: './img/cover2.jpg',
@@ -77,11 +90,39 @@ class Bookrack extends Component{
                     status:'完结'
                 },
                 {
-                    id:0,
-                    img: './img/default_add_bookrack.jpg',
-                    title: '',
-                    author:'',
-                    status:''
+                    id:9,
+                    img: './img/cover1.jpg',
+                    title: '你好，旧时光',
+                    author:'八月长安',
+                    status:'连载'
+                },
+                {
+                    id:10,
+                    img: './img/cover2.jpg',
+                    title: '微微一笑很倾城',
+                    author:'顾漫',
+                    status:'完结'
+                },,
+                {
+                    id:11,
+                    img: './img/cover1.jpg',
+                    title: '你好，旧时光',
+                    author:'八月长安',
+                    status:'连载'
+                },
+                {
+                    id:12,
+                    img: './img/cover2.jpg',
+                    title: '微微一笑很倾城',
+                    author:'顾漫',
+                    status:'完结'
+                },,
+                {
+                    id:13,
+                    img: './img/cover1.jpg',
+                    title: '你好，旧时光',
+                    author:'八月长安',
+                    status:'连载'
                 }
             ],
             //动作面板
@@ -93,14 +134,27 @@ class Bookrack extends Component{
             isHorizontal:false,
             bookgrid:[]    
         }
-        this.$tab = null;
+        this.$carousel = null;
         this.offsetTop = 0;
+        this.ele = null;
+        this.sTop = 0;
     } 
-    componentDidMount(){      
-        this.$tab = this.refs.tab;;
-        if(this.$tab){
-          this.offsetTop = this.$tab.offsetTop;
-          window.addEventListener('scroll',this.handleScroll);
+    componentWillMount(){
+        //添加书籍应放在书单的最后
+        //var booklist = this.state.booklist;
+        // booklist.push(this.state.emptyBooklist);
+        //this.st=etState({
+        //     booklist:booklist
+        // })
+    }
+    componentDidMount(){           
+        let that = this;
+        this.ele = document.querySelector('.am-tabs-pane-wrap');
+        this.$carousel = this.refs.carousel;
+           
+        if(this.$carousel){
+          this.offsetTop = this.$carousel.offsetTop;
+          this.ele.addEventListener('scroll',this.handleScroll.bind(that));
         }
         var bookgrid = [];
         this.state.booklist.map(item=>{   
@@ -113,19 +167,18 @@ class Bookrack extends Component{
             bookgrid:bookgrid
         })
     }
+
     handleScroll(){
-        let sTop = window.scrollY;
-        console.log(window.scrollTop);
-        if(!this.state.navTop && sTop >= this.offsetTop){
-           this.setState({
-             navTop: true
-           })
-        }
-    
+        var sTop = this.ele.scrollTop;
+        if(sTop >= this.offsetTop){
+            this.setState({
+                navTop:true
+            })
+        }    
         if(sTop < this.offsetTop){
-           this.setState({
-             navTop:false
-           })
+            this.setState({
+                navTop:false
+            })
         }
       }
     //操作
@@ -162,21 +215,37 @@ class Bookrack extends Component{
         let {history} = this.props;
         history.replace('/discover');
     }
+    getNavtop(){
+        this.offsetTop = this.refs.carousel.offsetTop;       
+    }
     render(){
         return (
-        <div id="bookrack"  onTouchMove={this.handleScroll.bind(this)}>
+        <div id="bookrack" >
             {/* 轮播图 */}
-            <header>
-                <NavBar 
-                    mode="light"
-                    rightContent={[
-                        <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
-                        <div className="format-list" key="1" dangerouslySetInnerHTML={{__html:octicons.grabber.toSVG()}} onClick={this.changeLayout.bind(this)}/>
-                    ]}                   
-                    >               
-                    <span>书架</span>
-                </NavBar>         
-            </header>             
+            {
+                this.state.navTop ? 
+                    <header>               
+                        <NavBar className="am-navbar-navtop"
+                            mode="light"
+                            rightContent={[
+                                <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+                                <div className="format-list" key="1" dangerouslySetInnerHTML={{__html:octicons.grabber.toSVG()}} onClick={this.changeLayout.bind(this)}/>
+                            ]}                   
+                            >               
+                            <span>书架</span>
+                        </NavBar>
+                    </header>  :
+                    <header>    
+                        <NavBar
+                            mode="light"
+                            rightContent={[
+                                <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+                                <div className="format-list" key="1" dangerouslySetInnerHTML={{__html:octicons.grabber.toSVG()}} onClick={this.changeLayout.bind(this)}/>
+                            ]}                   
+                        >      
+                        </NavBar>                       
+                    </header>
+            }            
             <main>
                 <Carousel 
                     autoplay={true}
@@ -198,9 +267,14 @@ class Bookrack extends Component{
                     ))}
                 </Carousel>   
                 {/* 书架 */}
-                {this.state.isHorizontal === false ? <div className="booklist" >
+                {this.state.isHorizontal === false ?
+                    <div className="booklist" 
+                    ref="carousel"
+                    onLoad={this.getNavtop.bind(this)}
+                    >
                     <List>
                     {
+                        
                         this.state.booklist.map(item=>{
                             return <Item 
                                 key={item.id}
